@@ -3,6 +3,19 @@
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ramen/cli`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
+The Ramen CLI will allow the user to view a list of ramen restaurants in the Oceanside area. The user can view restaurants 1-10 or 1-20. Users can then choose to view details for a specific restaurant (phone number, address, # of stars, website) or restart the program. The user can exit the program or view another restaurant (restart program). 
+
+What website will you be scraping? - Yelp.com
+
+What will you need to do with the data you return from scraping? - store data to create list of restaurants and detailed listing for each restaurant.
+
+What classes will you be using? - Print restaurant, initialize, scrapers, @@all, find
+
+What will be the flow of displaying data for your application. ex How will your CLI portion work. - Display 1-10 or 1-20. User can then opt to view additional details about a specific restaurant given the number of the restaurant.
+
+How will you display data one level deep to the user? - Users can view details about a specific restaurant.
+
+What will need to be in your README file? - Instructions on how to use the program.
 
 ## Installation
 
