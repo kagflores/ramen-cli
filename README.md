@@ -17,6 +17,18 @@ How will you display data one level deep to the user? - Users can view details a
 
 What will need to be in your README file? - Instructions on how to use the program.
 
+List display:
+Restaurant #. Restaurant name
+Description(one sentence if possible)
+
+Detailed display:
+Restaurant #. Restaurant name
+Address (2 lines)
+Phone number
+Description
+website
+Yelp review
+
 ## Installation
 
 Add this line to your application's Gemfile:
