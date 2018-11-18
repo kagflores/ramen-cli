@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'pry'
 
 class Scraper
-  def self.
+  def self.scrape_page(url)
     ramen_list = Nokogiri::HTML(open("https://sandiego.eater.com/maps/best-japanese-ramen-noodle-restaurant-san-diego"))
     ramen_spots = {}
     #ramen_list.css(".")
