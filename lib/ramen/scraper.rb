@@ -7,8 +7,16 @@ class Scraper
   def self.scrape_page(url = "https://sandiego.eater.com/maps/best-japanese-ramen-noodle-restaurant-san-diego")
     ramen_list = Nokogiri::HTML(open(url))
     ramen_spots = {}
-    #ramens = ramen_list.css(".c-mapstack__card")
-    binding.pry
+    ramen_list.css(".c-mapstack__card").each do |ramen_shop|
+      ramen_spots = {
+        :name = ramen_shop.css(".c-mapstack__card-hed").css("h1").text,
+        :address = ramen_shop.css(".c-mapstack__address").text
+        :phone_num = ramen_shop.css(".c-mapstack__phone-url").text
+        :description = ramen_shop.css(".c-entry-content").css("p").text
+        #:website = ramen_shop
+      }
+    end
+    ramen_spots
     
   end
   
