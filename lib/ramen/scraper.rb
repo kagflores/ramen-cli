@@ -8,12 +8,13 @@ class Scraper
     ramen_list = Nokogiri::HTML(open(url))
     ramen_spots = {}
     ramen_list.css(".c-mapstack__card").each do |ramen_shop|
+      binding.pry
       ramen_spots = {
-        :name = ramen_shop.css(".c-mapstack__card-hed").css("h1").text,
-        :address = ramen_shop.css(".c-mapstack__address").text
-        :phone_num = ramen_shop.css(".c-mapstack__phone-url").text
-        :description = ramen_shop.css(".c-entry-content").css("p").text
-        #:website = ramen_shop
+        :name => ramen_shop.css(".c-mapstack__card-hed").css("h1").text,
+        :address => ramen_shop.css(".c-mapstack__address").text,
+        :phone_num => ramen_shop.css(".c-mapstack__phone-url").text,
+        :description => ramen_shop.css(".c-entry-content").css("p").text
+        #:website => ramen_shop
       }
     end
     ramen_spots
