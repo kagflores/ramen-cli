@@ -17,5 +17,5 @@ Scraper.scrape_page()
 #Restaurant_name = ramens.css(".c-mapstack__card-hed").css("h1").text
 #Restaurant_address = ramens.css(".c-mapstack__address").text
 #_phone_num = ramens.css(".c-mapstack__phone-url").text
-#_description
-#_website
+#_description = ramens.css(".c-entry-content").css("p").text
+#_website = ramens.css(".c-mapstack__phone-url").css("a").attribute("target").value.....
