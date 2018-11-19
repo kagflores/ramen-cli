@@ -3,7 +3,7 @@ require "ramen/cli/version"
 class CLI
   def call
     WorldsBestRestaurants::Scraper.new.make_restaurants
-    puts "Welcome to the 50 Best Restaurants in the World"
+    puts "Welcome to the top 13 must-try ramen shops in San Diego!"
     start
   end
 
@@ -15,10 +15,10 @@ class CLI
     print_restaurants(input)
 
     puts ""
-    puts "What restaurant would you like more information on?"
+    puts "Would you like additional information about a restaurant? Enter the restaurant number."
     input = gets.strip
 
-    restaurant = WorldsBestRestaurants::Restaurant.find(input.to_i)
+    restaurant = Ramen.find(input.to_i)
 
     print_restaurant(restaurant)
 
@@ -30,7 +30,7 @@ class CLI
       start
     elsif input == "n"
       puts ""
-      puts "Thank you! Have a great day!"
+      puts "Thank you! Goodbye!"
       exit
     else
       puts ""
