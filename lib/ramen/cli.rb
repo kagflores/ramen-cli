@@ -2,7 +2,7 @@ require "ramen/cli/version"
 
 class CLI
   def call
-    WorldsBestRestaurants::Scraper.new.make_restaurants
+    Ramen.new.make_restaurants
     puts "Welcome to the top 13 must-try ramen shops in San Diego!"
     start
   end
@@ -12,7 +12,7 @@ class CLI
     puts "What number restaurants would you like to see? 1-5 or 1-13?"
     input = gets.strip.to_i
 
-    print_restaurants(input)
+    ramen_list(input)
 
     puts ""
     puts "Would you like additional information about a restaurant? Enter the restaurant number."
@@ -20,7 +20,7 @@ class CLI
 
     restaurant = Ramen.find(input.to_i)
 
-    print_restaurant(restaurant)
+    ramen_shop_detail(restaurant)
 
     puts ""
     puts "Would you like to see another restaurant? Enter Y or N"
@@ -34,8 +34,29 @@ class CLI
       exit
     else
       puts ""
-      puts "I don't understand that answer."
+      puts "Please enter a valid response (y/n)."
       start
     end
+  end
+  
+  def ramen_list(number)
+    puts ""
+    puts "------ Ramen Shops 1 - #{number+1} ------"
+    puts ""
+    Ramen.all[number-1, 10].each.with_index(from_number) do |restaurant, index|
+      puts "#{index}. #{ramen.name} - #{ramen.description}"
+    end
+  end
+  
+  def ramen_shop_detail(user_num)
+    puts ""
+    puts "#{ramen_name}"
+    puts ""
+    puts "address"
+    puts "phone_num"
+    puts "website"
+    puts ""
+    puts "ramen.description"
+    puts ""
   end
 end
