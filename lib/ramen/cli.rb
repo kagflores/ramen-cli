@@ -50,13 +50,13 @@ class CLI
   
   def ramen_shop_detail(user_num)
     puts ""
-    puts "#{ramen_name}"
+    puts "#{ramen.name}"
     puts ""
-    puts "address"
-    puts "phone_num"
-    puts "website"
+    puts "#{ramen.address}"
+    puts "#{ramen.phone_num}"
+    puts "#{ramen.website}"
     puts ""
-    puts "ramen.description"
+    puts "#{ramen.description}"
     puts ""
   end
 end
