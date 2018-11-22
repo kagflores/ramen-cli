@@ -2,7 +2,13 @@ class Ramen
   attr_accessor :name, :address, :phone_num, :website, :description
   @@all = []
   
-  def initialize
+  def initialize()
+    ramen_spots.each{|key, value| self.send("#{key}=", value)}
+    @@all << self
+  end
+  
+  def self.find(id)
+    self.all[id-1]
   end
   
   def self.all

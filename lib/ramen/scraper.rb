@@ -27,6 +27,10 @@ class Scraper
     
   end
   
+  def make_ramen_list
+    #ramen_places = 
+  end
+  
 end
 Scraper.scrape_page()
 #Restaurant_name = ramens.css(".c-mapstack__card-hed").css("h1").text
