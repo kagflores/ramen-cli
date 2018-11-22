@@ -9,13 +9,16 @@ class Scraper
     ramen_spots = []
     ramen_list.css(".c-mapstack__card").each do |ramen_shop|
       #binding.pry
-      ramen_spots << {
-        :name => ramen_shop.css(".c-mapstack__card-hed").css("h1").text, #get rid of /n at beginning
-        :address => ramen_shop.css(".c-mapstack__address").text, #separate into 2 lines
-        :phone_num => ramen_shop.css(".c-mapstack__phone-url").css("a").text, #clarify text to pull number only
-        :description => ramen_shop.css(".c-entry-content").css("p").text,
-        :website => ramen_shop.css(".c-mapstack__phone-url").css("a").attribute("href").value, 
-      }
+      if ramen_shop.css(".c-mapstack__card-hed").css("h1").text != ""
+        #binding.pry
+        ramen_spots << {
+          :name => ramen_shop.css(".c-mapstack__card-hed").css("h1").text, #get rid of /n at beginning
+          :address => ramen_shop.css(".c-mapstack__address").text, #separate into 2 lines
+          :phone_num => ramen_shop.css(".c-mapstack__phone-url").css("a").text, #clarify text to pull number only
+          :description => ramen_shop.css(".c-entry-content").css("p").text,
+          :website => ramen_shop.css(".c-mapstack__phone-url").css("a").last.attribute("href").text
+        }
+      end
     end
     binding.pry
     #ramen_spots[:name] = ramen_list.css(".c-mapstack__card").css(".c-mapstack__card-hed").css("h1").text
@@ -31,3 +34,4 @@ Scraper.scrape_page()
 #_phone_num = ramens.css(".c-mapstack__phone-url").text
 #_description = ramens.css(".c-entry-content").css("p").text
 #_website = ramens.css(".c-mapstack__phone-url").css("a").attribute("target").value.....
+#phone_num alternative = :website => ramen_shop.css(".c-mapstack__phone-url").css("a").last.attribute("href").text
