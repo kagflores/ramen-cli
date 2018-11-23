@@ -13,9 +13,10 @@ class Scraper
         #binding.pry
         name_long = ramen_shop.css(".c-mapstack__card-hed").css("h1").text
         phone_num_long = ramen_shop.css(".c-mapstack__phone-url").css("a").text
+        address_long = ramen_shop.css(".c-mapstack__address").text
         ramen_spots << {
           :name => name_long.slice(1..-1),
-          :address => ramen_shop.css(".c-mapstack__address").text, #separate into 2 lines
+          :address => address_long.insert(-20, " "),
           :phone_num => phone_num_long.slice(0..13),
           :description => ramen_shop.css(".c-entry-content").css("p").text,
           :website => ramen_shop.css(".c-mapstack__phone-url").css("a").last.attribute("href").text,
