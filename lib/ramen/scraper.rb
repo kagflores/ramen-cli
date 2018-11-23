@@ -14,7 +14,7 @@ class Scraper
         name_long = ramen_shop.css(".c-mapstack__card-hed").css("h1").text
         phone_num_long = ramen_shop.css(".c-mapstack__phone-url").css("a").text
         ramen_spots << {
-          :name => name_long.gsub(/[n]/, ''),
+          :name => name_long.slice(1..-1),
           :address => ramen_shop.css(".c-mapstack__address").text, #separate into 2 lines
           :phone_num => phone_num_long.slice(0..13),
           :description => ramen_shop.css(".c-entry-content").css("p").text,
