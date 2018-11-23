@@ -35,7 +35,7 @@ class Scraper
   end
   
 end
-Scraper.scrape_page()
+#Scraper.scrape_page()
 #Restaurant_name = ramens.css(".c-mapstack__card-hed").css("h1").text
 #Restaurant_address = ramens.css(".c-mapstack__address").text
 #_phone_num = ramens.css(".c-mapstack__phone-url").text

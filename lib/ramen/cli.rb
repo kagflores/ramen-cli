@@ -1,15 +1,17 @@
-require "ramen/cli/version"
+#require "ramen/cli/version"
+require_relative '..lib/ramen/ramen.rb'
+require_relative '..lib/ramen/scraper.rb'
 
 class CLI
   def call
-    Ramen.new.make_restaurants
+    Ramen.new()
     puts "Welcome to the top 13 must-try ramen shops in San Diego!"
     start
   end
 
   def start
     puts ""
-    puts "What number restaurants would you like to see? 1-5 or 1-13?"
+    puts "Would you like to see 5, 10, or all 13 ramen restaurants?"
     input = gets.strip.to_i
 
     ramen_list(input)
@@ -20,10 +22,10 @@ class CLI
 
     restaurant = Ramen.find(input.to_i)
 
-    ramen_shop_detail(restaurant)
+    ramen_shop_detail(restaurant) #is this calling the right thing?
 
     puts ""
-    puts "Would you like to see another restaurant? Enter Y or N"
+    puts "Would you like to see another restaurant? (Y/N)"
 
     input = gets.strip.downcase
     if input == "y"
@@ -41,10 +43,11 @@ class CLI
   
   def ramen_list(number)
     puts ""
-    puts "------ Ramen Shops 1 - #{number+1} ------"
+    puts "------ Ramen Shops 1 - #{number} ------" 
     puts ""
-    Ramen.all[number-1, 10].each.with_index(from_number) do |restaurant, index|
-      puts "#{index}. #{ramen.name} - #{ramen.description}"
+    Ramen.all[0, number-1].each do |restaurant|
+      description_short = ramen.description.split("\n").first
+      puts "#{ramen.name} - #{description_short}"
     end
   end
   

@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/command_line_interface.rb"
+require_relative "../lib/ramen/cli.rb"
 
 
-CommandLineInterface.new.run
+CLI.new.call
