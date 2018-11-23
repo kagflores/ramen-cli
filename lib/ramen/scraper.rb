@@ -11,12 +11,14 @@ class Scraper
       #binding.pry
       if ramen_shop.css(".c-mapstack__card-hed").css("h1").text != ""
         #binding.pry
+        name_long = ramen_shop.css(".c-mapstack__card-hed").css("h1").text
+        phone_num_long = ramen_shop.css(".c-mapstack__phone-url").css("a").text
         ramen_spots << {
-          :name => ramen_shop.css(".c-mapstack__card-hed").css("h1").text, #get rid of /n at beginning
+          :name => name_long.gsub(/[n]/, ''),
           :address => ramen_shop.css(".c-mapstack__address").text, #separate into 2 lines
-          :phone_num => ramen_shop.css(".c-mapstack__phone-url").css("a").text, #clarify text to pull number only
+          :phone_num => phone_num_long.slice(0..13),
           :description => ramen_shop.css(".c-entry-content").css("p").text,
-          :website => ramen_shop.css(".c-mapstack__phone-url").css("a").last.attribute("href").text
+          :website => ramen_shop.css(".c-mapstack__phone-url").css("a").last.attribute("href").text,
         }
       end
     end
