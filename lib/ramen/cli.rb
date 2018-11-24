@@ -64,9 +64,9 @@ class CLI
     puts "------ Ramen Shops 1 - #{number} ------" 
     puts ""
     Ramen.all[0, number].each do |restaurant|
-      description_short = restaurant.description.split("\n").first # includes whole description
+      description_short = restaurant.description.split(".").first.insert(-1,".")
       puts "#{restaurant.name} - #{description_short}"
-      puts "---------------------------------------"
+      puts "--------------------------------"
     end
   end
   
