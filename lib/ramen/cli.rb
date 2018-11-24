@@ -21,18 +21,19 @@ class CLI
     input = gets.strip.to_i
 
     ramen_list(input)
-
-    puts ""
-    puts "Would you like additional information about a restaurant? Enter the restaurant number."
-    input = gets.strip
-    if input.to_i.between?(1,13)
-      restaurant = input.to_i
-      ramen_shop_detail(restaurant)
-    else input == "n" || input == "no" || input == "N"
-      puts ""
-      puts "Thank you! Goodbye!"
-      exit
-    end
+    details
+    
+    #puts ""
+    #puts "Would you like additional information about a restaurant? Enter the restaurant number."
+    #input = gets.strip
+    #if input.to_i.between?(1,13)
+    #  restaurant = input.to_i
+    #  ramen_shop_detail(restaurant)
+    #else input == "n" || input == "no" || input == "N"
+    #  puts ""
+    #  puts "Thank you! Goodbye!"
+    #  exit
+    #end
 
     #restaurant = input.to_i
 
@@ -52,6 +53,24 @@ class CLI
       puts ""
       puts "Please enter a valid response (y/n)."
       start
+    end
+  end
+  
+  def details
+    puts ""
+    puts "Would you like additional information about a restaurant? Enter the restaurant number."
+    input = gets.strip
+    if input.to_i.between?(1,13)
+      restaurant = input.to_i
+      ramen_shop_detail(restaurant)
+    elsif input == "n" || input == "no" || input == "N"
+      puts ""
+      puts "Thank you! Goodbye!"
+      exit
+    else
+      puts ""
+      puts "Please enter a valid response (1-13)."
+      details
     end
   end
   
