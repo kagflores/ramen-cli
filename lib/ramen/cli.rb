@@ -28,14 +28,10 @@ class CLI
     if input.to_i.between?(1,13)
       restaurant = input.to_i
       ramen_shop_detail(restaurant)
-    elsif input == "n" || input == "no" || input == "N"
+    else input == "n" || input == "no" || input == "N"
       puts ""
       puts "Thank you! Goodbye!"
       exit
-    else
-      puts ""
-      puts "Please enter a valid response (1-13)."
-      start
     end
 
     #restaurant = input.to_i
@@ -46,9 +42,9 @@ class CLI
     puts "Would you like to see another restaurant? (Y/N)"
 
     input = gets.strip.downcase
-    if input == "y"
+    if input == "y" || input == "yes"
       start
-    elsif input == "n"
+    elsif input == "n" || input == "no"
       puts ""
       puts "Thank you! Goodbye!"
       exit
@@ -84,5 +80,3 @@ class CLI
     #end
   end
 end
-
-CLI.new.call
