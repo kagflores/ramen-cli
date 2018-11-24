@@ -51,13 +51,13 @@ class CLI
     puts ""
     puts "------ Ramen Shops 1 - #{number} ------" 
     puts ""
-    Ramen.all[0, number-1].each do |restaurant|
-      description_short = ramen.description.split("\n").first
-      puts "#{ramen.name} - #{description_short}"
+    Ramen.all[0, number].each do |restaurant|
+      description_short = restaurant.description.split("\n").first # includes whole description
+      puts "#{restaurant.name} - #{description_short}"
     end
   end
   
-  def ramen_shop_detail(user_num)
+  def ramen_shop_detail(user_num) #undefined local variable or method ramen
     puts ""
     puts "#{ramen.name}"
     puts ""
