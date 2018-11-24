@@ -4,6 +4,7 @@ require 'pry'
 
 class Scraper
   #url = "https://sandiego.eater.com/maps/best-japanese-ramen-noodle-restaurant-san-diego"
+  
   def self.scrape_page(url = "https://sandiego.eater.com/maps/best-japanese-ramen-noodle-restaurant-san-diego")
     ramen_list = Nokogiri::HTML(open(url))
     ramen_spots = []
@@ -31,7 +32,8 @@ class Scraper
   end
   
   def make_ramen_list
-    #ramen_places = 
+    ramen_array = scrape_page()
+    Ramen.new(ramen_array)
   end
   
 end

@@ -1,6 +1,6 @@
 #require "ramen/cli/version"
-require_relative '..lib/ramen/ramen.rb'
-require_relative '..lib/ramen/scraper.rb'
+require_relative "../ramen/ramen.rb"
+require_relative '../ramen/scraper.rb'
 
 class CLI
   def call
@@ -63,3 +63,5 @@ class CLI
     puts ""
   end
 end
+
+CLI.call
