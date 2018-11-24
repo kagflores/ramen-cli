@@ -3,8 +3,14 @@ require_relative "../ramen/ramen.rb"
 require_relative '../ramen/scraper.rb'
 
 class CLI
+  
+  def make_ramen_list
+    ramen_array = Scraper.scrape_page()
+    Ramen.create_from_list(ramen_array)
+  end
+  
   def call
-    Ramen.new()
+    make_ramen_list
     puts "Welcome to the top 13 must-try ramen shops in San Diego!"
     start
   end
@@ -64,4 +70,4 @@ class CLI
   end
 end
 
-CLI.call
+CLI.new.call

@@ -24,17 +24,14 @@ class Scraper
         }
       end
     end
-    binding.pry
+    #binding.pry
     #ramen_spots[:name] = ramen_list.css(".c-mapstack__card").css(".c-mapstack__card-hed").css("h1").text
     #binding.pry
     ramen_spots
     
   end
   
-  def make_ramen_list
-    ramen_array = scrape_page()
-    Ramen.new(ramen_array)
-  end
+  
   
 end
 #Scraper.scrape_page()

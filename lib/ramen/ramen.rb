@@ -8,6 +8,12 @@ class Ramen
     @@all << self
   end
   
+  def self.create_from_list(ramen_array)
+    ramen_array.each do |shop|
+      ramen = Ramen.new(shop)
+    end
+  end
+  
   def self.find(id)
     self.all[id-1]
   end
