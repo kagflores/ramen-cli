@@ -1,6 +1,7 @@
 # Ramen::Cli
 
 The Ramen CLI provides a list of 13 best ramen restaurants to eat at in San Diego according to the Eater San Diego website.
+
 ## Installation
 
     $ gem install ramen-cli
