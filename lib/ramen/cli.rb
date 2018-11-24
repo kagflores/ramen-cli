@@ -25,10 +25,22 @@ class CLI
     puts ""
     puts "Would you like additional information about a restaurant? Enter the restaurant number."
     input = gets.strip
+    if input.to_i.between?(1,13)
+      restaurant = input.to_i
+      ramen_shop_detail(restaurant)
+    elsif input == "n" || input == "no" || input == "N"
+      puts ""
+      puts "Thank you! Goodbye!"
+      exit
+    else
+      puts ""
+      puts "Please enter a valid response (1-13)."
+      start
+    end
 
-    restaurant = Ramen.find(input.to_i)
+    #restaurant = input.to_i
 
-    ramen_shop_detail(restaurant) #is this calling the right thing?
+    #ramen_shop_detail(restaurant)
 
     puts ""
     puts "Would you like to see another restaurant? (Y/N)"
@@ -54,19 +66,22 @@ class CLI
     Ramen.all[0, number].each do |restaurant|
       description_short = restaurant.description.split("\n").first # includes whole description
       puts "#{restaurant.name} - #{description_short}"
+      puts "---------------------------------------"
     end
   end
   
-  def ramen_shop_detail(user_num) #undefined local variable or method ramen
-    puts ""
-    puts "#{ramen.name}"
-    puts ""
-    puts "#{ramen.address}"
-    puts "#{ramen.phone_num}"
-    puts "#{ramen.website}"
-    puts ""
-    puts "#{ramen.description}"
-    puts ""
+  def ramen_shop_detail(user_num)
+    restaurant = Ramen.all[user_num-1]
+      puts ""
+      puts "#{restaurant.name}"
+      puts ""
+      puts "#{restaurant.address}"
+      puts "#{restaurant.phone_num}"
+      puts "#{restaurant.website}"
+      puts ""
+      puts "#{restaurant.description}"
+      puts ""
+    #end
   end
 end
 
