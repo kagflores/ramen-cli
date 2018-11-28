@@ -4,7 +4,7 @@ The Ramen CLI provides a list of 13 best ramen restaurants to eat at in San Dieg
 
 ## Installation
 
-    $ gem install ramen-cli
+    $ gem install ramen
 
 ## Usage
 
