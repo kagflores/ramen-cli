@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/ramen/cli.rb"
+#require_relative "../lib/ramen/cli"
+require "bundler/setup"
+require "ramen"
 
-CLI.new.call
+Ramen::CLI.new.call

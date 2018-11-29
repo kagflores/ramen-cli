@@ -1,4 +1,4 @@
-class Ramen
+class Ramen::RamenShop
   attr_accessor :name, :address, :phone_num, :website, :description
   @@all = []
   
@@ -10,7 +10,7 @@ class Ramen
   
   def self.create_from_list(ramen_array)
     ramen_array.each do |shop|
-      ramen = Ramen.new(shop)
+      ramen = Ramen::RamenShop.new(shop)
     end
   end
   

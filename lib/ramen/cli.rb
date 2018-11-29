@@ -1,13 +1,13 @@
 #require "ramen/cli/version"
-require_relative "../ramen/ramen.rb"
-require_relative '../ramen/scraper.rb'
+#require_relative '../ramen/ramen.rb'
+#require_relative '../ramen/scraper.rb'
 #require_relative '../config/environment.rb'
 
-class CLI
+class Ramen::CLI
   
   def make_ramen_list
-    ramen_array = Scraper.scrape_page()
-    Ramen.create_from_list(ramen_array)
+    ramen_array = Ramen::Scraper.scrape_page()
+    Ramen::RamenShop.create_from_list(ramen_array)
   end
   
   def call
@@ -79,7 +79,7 @@ class CLI
     puts ""
     puts "------ Ramen Shops 1 - #{number} ------" 
     puts ""
-    Ramen.all[0, number].each do |restaurant|
+    Ramen::RamenShop.all[0, number].each do |restaurant|
       description_short = restaurant.description.split(".").first.insert(-1,".")
       puts "#{restaurant.name} - #{description_short}"
       puts "--------------------------------"
@@ -87,7 +87,7 @@ class CLI
   end
   
   def ramen_shop_detail(user_num)
-    restaurant = Ramen.all[user_num-1]
+    restaurant = Ramen::RamenShop.all[user_num-1]
       puts ""
       puts "#{restaurant.name}"
       puts ""

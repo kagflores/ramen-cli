@@ -1,8 +1,8 @@
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
+#require 'open-uri'
+#require 'nokogiri'
+#require 'pry'
 
-class Scraper
+class Ramen::Scraper
   #url = "https://sandiego.eater.com/maps/best-japanese-ramen-noodle-restaurant-san-diego"
   
   def self.scrape_page(url = "https://sandiego.eater.com/maps/best-japanese-ramen-noodle-restaurant-san-diego")
