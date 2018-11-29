@@ -1,26 +1,4 @@
-class Ramen
-  attr_accessor :name, :address, :phone_num, :website, :description
-  @@all = []
-  
-  def initialize(ramen_spots)
-    #call with return value of 'Scraper.scrape_page' as an argument
-    ramen_spots.each{|key, value| self.send("#{key}=", value)}
-    @@all << self
-  end
-  
-  def self.create_from_list(ramen_array)
-    ramen_array.each do |shop|
-      ramen = Ramen.new(shop)
-    end
-  end
-  
-  def self.find(id)
-    self.all[id-1]
-  end
-  
-  def self.all
-    @@all
-  end
+module Ramen
 end
 
-#require_relative '../config/environment'
+require_relative '../config/environment'
