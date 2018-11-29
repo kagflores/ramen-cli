@@ -1,6 +1,6 @@
 #require "ramen/cli/version"
-#require_relative "../lib/ramen.rb"
-#require_relative '../lib/ramen/scraper.rb'
+require_relative "../ramen.rb"
+require_relative '../ramen/scraper.rb'
 
 class CLI
   
