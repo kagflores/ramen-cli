@@ -1,11 +1,11 @@
 require_relative './lib/ramen/cli/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ramen-cli"
+  spec.name          = 'ramen'
   spec.version       = Ramen::Cli::VERSION
   spec.authors       = ["'Karen Flores'"]
   spec.email         = ["'karen.ag.flores@gmail.com'"]
-  spec.files         = ["lib/ramen.rb", "lib/ramen/cli.rb", "lib/ramen/scraper.rb", "lib/ramen/cli/verson.rb", "config/environment.rb"]
+  spec.files         = ["lib/ramen/ramen.rb", "lib/ramen/cli.rb", "lib/ramen/scraper.rb", "lib/ramen/cli/verson.rb", "config/environment.rb", "lib/ramen.rb"]
 
   spec.summary       = "Ramen restaurants in San Diego"
   spec.description   = "Provides a list of 13 ramen restaurants in San Diego"

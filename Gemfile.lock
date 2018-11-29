@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ramen-cli (0.1.0)
+    ramen (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -24,7 +24,7 @@ DEPENDENCIES
   nokogiri
   pry
   rake (~> 10.0)
-  ramen-cli!
+  ramen!
 
 BUNDLED WITH
    1.17.1
