@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/ramen"
+#require_relative "../lib/ramen"
 require "bundler/setup"
 require "ramen"
 
