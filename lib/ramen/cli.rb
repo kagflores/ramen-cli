@@ -7,17 +7,21 @@ class Ramen::CLI
   
   def call
     make_ramen_list
-    puts "Welcome to the top 13 must-try ramen shops in San Diego!"
+    puts "Welcome to the top #{Ramen::RamenShop.all.count} must-try ramen shops in San Diego!"
     start
   end
 
   def start
     puts ""
-    puts "Would you like to see 5, 10, or all 13 ramen restaurants?"
+    puts "There are #{Ramen::RamenShop.all.count} ramen restaurants. How many would you like to see?"
     input = gets.strip.to_i
-
-    ramen_list(input)
-    details
+    if input < 1 || input >Ramen::RamenShop.all.count
+      puts "I didn't understand."
+      start
+    else
+      ramen_list(input)
+      details
+    end
     
     puts ""
     puts "Would you like to see another restaurant? (Y/N)"
@@ -38,9 +42,9 @@ class Ramen::CLI
   
   def details
     puts ""
-    puts "Would you like additional information about a restaurant? Enter the restaurant number."
+    puts "Would you like additional information about a restaurant? Enter the restaurant number or no/n to exit."
     input = gets.strip
-    if input.to_i.between?(1,13)
+    if input.to_i.between?(1,Ramen::RamenShop.all.count)
       restaurant = input.to_i
       ramen_shop_detail(restaurant)
     elsif input == "n" || input == "no" || input == "N"
@@ -49,7 +53,7 @@ class Ramen::CLI
       exit
     else
       puts ""
-      puts "Please enter a valid response (1-13)."
+      puts "Please enter a valid response (1-#{Ramen::RamenShop.all.count})."
       details
     end
   end

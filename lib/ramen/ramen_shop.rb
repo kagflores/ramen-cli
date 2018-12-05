@@ -9,7 +9,7 @@ class Ramen::RamenShop
   
   def self.create_from_list(ramen_array)
     ramen_array.each do |shop|
-      ramen = Ramen::RamenShop.new(shop)
+      self.new(shop)
     end
   end
   
