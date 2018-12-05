@@ -1,8 +1,3 @@
-#require "ramen/cli/version"
-#require_relative '../ramen/ramen.rb'
-#require_relative '../ramen/scraper.rb'
-#require_relative '../config/environment.rb'
-
 class Ramen::CLI
   
   def make_ramen_list
@@ -24,22 +19,6 @@ class Ramen::CLI
     ramen_list(input)
     details
     
-    #puts ""
-    #puts "Would you like additional information about a restaurant? Enter the restaurant number."
-    #input = gets.strip
-    #if input.to_i.between?(1,13)
-    #  restaurant = input.to_i
-    #  ramen_shop_detail(restaurant)
-    #else input == "n" || input == "no" || input == "N"
-    #  puts ""
-    #  puts "Thank you! Goodbye!"
-    #  exit
-    #end
-
-    #restaurant = input.to_i
-
-    #ramen_shop_detail(restaurant)
-
     puts ""
     puts "Would you like to see another restaurant? (Y/N)"
 
@@ -97,6 +76,5 @@ class Ramen::CLI
       puts ""
       puts "#{restaurant.description}"
       puts ""
-    #end
   end
 end

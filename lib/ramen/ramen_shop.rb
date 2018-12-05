@@ -3,7 +3,6 @@ class Ramen::RamenShop
   @@all = []
   
   def initialize(ramen_spots)
-    #call with return value of 'Scraper.scrape_page' as an argument
     ramen_spots.each{|key, value| self.send("#{key}=", value)}
     @@all << self
   end
@@ -22,5 +21,3 @@ class Ramen::RamenShop
     @@all
   end
 end
-
-#require_relative '../config/environment'
